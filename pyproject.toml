@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygcadwin"
+version = "0.1.0"
+description = "Pythonic COM automation API for GstarCAD on Windows"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "GstarCAD Team"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pywin32>=306; platform_system == 'Windows'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+]
+tables = [
+    "tablib[xls,xlsx]>=3.5.0",
+    "xlrd>=2.0.1",
+]
+
+[tool.setuptools]
+packages = ["pygcadwin", "pygcadwin.contrib"]
+
+[tool.setuptools.package-data]
+pygcadwin = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
